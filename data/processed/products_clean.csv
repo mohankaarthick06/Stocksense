@@ -1,0 +1,82 @@
+product_id,product_name,category,sub_category,brand,mrp,cost_price,shelf_life_days,supplier_id
+P101,Milk 1L,Dairy,Milk,Aavin,60,52,3,SUP01
+P102,Milk 500ml,Dairy,Milk,Aavin,30,26,3,SUP01
+P103,Curd 500g,Dairy,Curd,Aavin,35,27,5,SUP01
+P104,Buttermilk 200ml,Dairy,Buttermilk,Aavin,15,10,3,SUP01
+P105,Paneer 200g,Dairy,Paneer,DairyDew,95,70,10,SUP01
+P106,Butter 100g,Dairy,Butter,DairyDew,58,47,180,SUP01
+P107,Ghee 500ml,Dairy,Ghee,Aavin,340,288,270,SUP01
+P108,Cheese Slices 200g,Dairy,Cheese,DairyDew,150,118,180,SUP01
+P109,Flavoured Milk 200ml,Dairy,Flavoured Milk,Aavin,25,17,90,SUP01
+P111,Bread 400g,Groceries,Bread,FreshBake,45,34,4,SUP02
+P112,Brown Bread 400g,Groceries,Bread,FreshBake,55,41,4,SUP02
+P113,Idli Batter 1kg,Groceries,Batter,BatterUp,90,62,4,SUP02
+P114,Greek Yogurt 100g,Dairy,Curd,DairyDew,50,35,15,SUP01
+P205,Shampoo 180ml,Personal Care,Shampoo,GlowCare,120,79,730,SUP08
+P206,Bath Soap 4x100g,Personal Care,Soap,HerbalGlow,160,114,730,SUP08
+P207,Toothpaste 150g,Personal Care,Oral Care,DentaFresh,105,72,730,SUP08
+P208,Toothbrush,Personal Care,Oral Care,DentaFresh,45,25,1095,SUP08
+P209,Coconut Hair Oil 200ml,Personal Care,Hair Oil,KeraPure,110,80,540,SUP08
+P210,Face Wash 100ml,Personal Care,Skin Care,HerbalGlow,150,95,730,SUP08
+P211,Talcum Powder 100g,Personal Care,Skin Care,HerbalGlow,90,60,1095,SUP08
+P212,Deodorant 150ml,Personal Care,Deodorant,GlowCare,199,120,1095,SUP08
+P213,Sanitary Pads 8s,Personal Care,Hygiene,GlowCare,99,68,1095,SUP08
+P214,Hand Wash 190ml,Personal Care,Hygiene,HerbalGlow,99,62,730,SUP08
+P216,Herbal Shampoo 180ml,Personal Care,Shampoo,GlowCare,135,88,730,SUP08
+P330,Cola 750ml,Beverages,Soft Drink,FizzUp,50,31,180,SUP04
+P331,Lemon Soda 750ml,Beverages,Soft Drink,FizzUp,45,28,180,SUP04
+P332,Orange Drink 600ml,Beverages,Soft Drink,FizzUp,40,25,180,SUP04
+P333,Mango Drink 1.2L,Beverages,Juice,Tropico,70,46,180,SUP04
+P334,Packaged Water 1L,Beverages,Water,AquaPure,20,11,365,SUP04
+P335,Energy Drink 250ml,Beverages,Energy Drink,Bolt,110,72,365,SUP04
+P336,Tender Coconut Water 200ml,Beverages,Juice,Tropico,45,30,60,SUP04
+P337,Mixed Fruit Juice 1L,Beverages,Juice,Tropico,125,92,180,SUP04
+P338,Cola 2L,Beverages,Soft Drink,FizzUp,95,62,180,SUP04
+P339,Cold Coffee Can 200ml,Beverages,Coffee Drink,FizzUp,60,38,270,SUP04
+P442,Biscuits 200g,Snacks,Biscuits,Crispo,35,22,240,SUP06
+P443,Cream Biscuits 120g,Snacks,Biscuits,Crispo,30,19,240,SUP06
+P444,Marie Biscuits 250g,Snacks,Biscuits,Crispo,40,28,240,SUP06
+P445,Potato Chips 52g,Snacks,Chips,CrunchIt,20,13,150,SUP05
+P446,Madras Mixture 200g,Snacks,Namkeen,Madras Mix,60,40,120,SUP05
+P447,Murukku 200g,Snacks,Namkeen,Madras Mix,70,48,90,SUP05
+P448,Chocolate Bar 50g,Snacks,Chocolate,ChocoBay,45,30,270,SUP05
+P449,Peanut Chikki 100g,Snacks,Sweets,SweetHouse,25,15,120,SUP05
+P450,Butter Cookies 200g,Snacks,Biscuits,Crispo,99,66,240,SUP06
+P451,Rusk 300g,Snacks,Biscuits,Crispo,60,42,180,SUP06
+P452,Mysore Pak Box 500g,Snacks,Sweets,SweetHouse,280,188,20,SUP05
+P453,Millet Cookies 150g,Snacks,Biscuits,Crispo,55,36,240,SUP06
+P501,Ponni Rice 5kg,Groceries,Rice,Nellai Gold,380,318,365,SUP03
+P502,Basmati Rice 1kg,Groceries,Rice,GrainKing,160,124,365,SUP03
+P503,Wheat Atta 5kg,Groceries,Flour,GrainKing,290,244,180,SUP03
+P504,Toor Dal 1kg,Groceries,Pulses,GrainKing,180,150,270,SUP03
+P505,Sugar 1kg,Groceries,Sugar,Nellai Gold,50,44,365,SUP03
+P506,Sunflower Oil 1L,Groceries,Edible Oil,GoldDrop,175,150,270,SUP03
+P507,Groundnut Oil 1L,Groceries,Edible Oil,Idhaya,230,194,270,SUP03
+P508,Salt 1kg,Groceries,Salt,SeaPure,28,20,730,SUP03
+P509,Tea Powder 250g,Groceries,Tea,TeaLeaf,150,118,365,SUP03
+P510,Filter Coffee 200g,Groceries,Coffee,KaapiKing,210,168,270,SUP03
+P511,Sambar Powder 200g,Groceries,Spices,SpiceNest,75,54,270,SUP03
+P512,Chilli Powder 200g,Groceries,Spices,SpiceNest,80,58,270,SUP03
+P513,Rava 1kg,Groceries,Flour,GrainKing,60,47,180,SUP03
+P514,Jaggery 1kg,Groceries,Sugar,Nellai Gold,90,69,240,SUP03
+P515,Camphor 50g,Groceries,Pooja Items,PoojaShree,60,38,730,SUP10
+P516,Agarbatti Pack,Groceries,Pooja Items,PoojaShree,60,40,730,SUP10
+P517,Coconut (each),Groceries,Fresh Produce,Farm Fresh,35,25,20,SUP03
+P518,Instant Noodles 4-pack,Groceries,Instant Food,QuickBite,56,44,270,SUP05
+P601,Detergent Powder 1kg,Household,Laundry,WashMax,135,102,730,SUP07
+P602,Dishwash Bar 3-pack,Household,Dishwash,ShinePro,60,42,730,SUP07
+P603,Dishwash Liquid 500ml,Household,Dishwash,ShinePro,110,78,730,SUP07
+P604,Floor Cleaner 1L,Household,Cleaning,ShinePro,199,135,730,SUP07
+P605,Toilet Cleaner 500ml,Household,Cleaning,ShinePro,99,68,730,SUP07
+P606,Mosquito Repellent Refill,Household,Pest Control,GuardHome,85,58,1095,SUP07
+P607,Garbage Bags 30s,Household,Disposables,GuardHome,99,60,1095,SUP07
+P608,Matchbox 10-pack,Household,Pooja & Utility,PoojaShree,10,6,1095,SUP10
+P609,Aluminium Foil 9m,Household,Disposables,GuardHome,120,85,1095,SUP07
+P610,Liquid Detergent 1L,Household,Laundry,WashMax,230,168,730,SUP07
+P701,Vanilla Ice Cream 700ml,Frozen,Ice Cream,ChillBay,180,118,180,SUP09
+P702,Chocolate Cone,Frozen,Ice Cream,ChillBay,40,25,180,SUP09
+P703,Frozen Green Peas 500g,Frozen,Frozen Veg,FrostFarm,110,78,365,SUP09
+P704,Frozen Parotta 5pc,Frozen,Frozen Snacks,FrostFarm,99,68,180,SUP09
+P705,Chicken Nuggets 400g,Frozen,Frozen Snacks,FrostFarm,240,168,270,SUP09
+P706,Kulfi Stick,Frozen,Ice Cream,ChillBay,30,18,180,SUP09
+P707,French Fries 420g,Frozen,Frozen Snacks,FrostFarm,150,100,365,SUP09

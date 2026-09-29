@@ -1,0 +1,11 @@
+supplier_id,supplier_name,city,nominal_lead_days
+SUP01,Aavin Dairy Distributors,Coimbatore,1
+SUP02,FreshBake Foods,Coimbatore,1
+SUP03,Kaveri Staples Wholesale,Tiruchirappalli,3
+SUP04,FizzUp Beverages Pvt Ltd,Chennai,3
+SUP05,CrunchIt Snacks,Madurai,2
+SUP06,Crispo Biscuits,Salem,3
+SUP07,HomeGuard Distributors,Chennai,4
+SUP08,GlowCare Consumer Products,Chennai,4
+SUP09,ChillBay Frozen Foods,Coimbatore,2
+SUP10,PoojaShree Traders,Madurai,3

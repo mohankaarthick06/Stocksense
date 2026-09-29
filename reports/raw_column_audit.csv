@@ -1,0 +1,63 @@
+file,column,dtype_as_read,expected_type,rows,missing,rule,violations,result
+transactions.csv,transaction_id,object,string,723614,0,format T + digits; unique per distinct record,0,OK
+transactions.csv,date,object,date,723614,0,YYYY-MM-DD (DD-MM-YYYY counted as invalid format),8683,"Issue - fixed, see below"
+transactions.csv,date,object,date,723614,0,"parseable as a real date in either format, within 1 Mar - 31 Aug",0,OK
+transactions.csv,store_id,object,string,723614,0,exact format S + 2 digits,2890,"Issue - fixed, see below"
+transactions.csv,product_id,object,string,723614,0,exact format P + 3 digits and in product master,2892,"Issue - fixed, see below"
+transactions.csv,quantity,int64,integer,723614,0,integer > 0,2165,"Issue - fixed, see below"
+transactions.csv,quantity,int64,integer,723614,0,< 100 (larger values checked against inventory),45,"Issue - fixed, see below"
+transactions.csv,selling_price,float64,float,723614,3620,0 < price <= MRP,4340,"Issue - fixed, see below"
+transactions.csv,discount_pct,int64,integer,723614,0,"one of 0,5,10,15,20,25,30",0,OK
+transactions.csv,promotion_flag,int64,0/1,723614,0,0/1 and equals (discount_pct > 0),0,OK
+transactions.csv,customer_id,object,string,723614,275235,"C + digits, or blank (non-member)",0,OK (blank is meaningful)
+transactions.csv,payment_mode,object,category,723614,0,UPI / Card / Cash,0,OK
+transactions.csv,hour,int64,integer,723614,0,0-23,0,OK
+products.csv,product_id,object,string,84,0,P + 3 digits; unique,3,"Issue - fixed, see below"
+products.csv,product_name,object,string,84,0,not blank,0,OK
+products.csv,category,object,category,84,0,exactly one of the 7 standard spellings,21,"Issue - fixed, see below"
+products.csv,category,object,category,84,0,maps to a standard category after trim + lower-case,0,OK
+products.csv,sub_category,object,string,84,0,not blank,0,OK
+products.csv,brand,object,string,84,1,not blank,1,"Issue - fixed, see below"
+products.csv,mrp,int64,float,84,0,> 0,0,OK
+products.csv,cost_price,int64,float,84,0,0 < cost < MRP,0,OK
+products.csv,shelf_life_days,float64,integer,84,1,> 0,1,"Issue - fixed, see below"
+products.csv,supplier_id,object,string,84,0,in supplier master,0,OK
+stores.csv,store_id,object,string,6,0,S + 2 digits; unique,0,OK
+stores.csv,city,object,string,6,0,has weather rows under the same name,1,"Issue - fixed, see below"
+stores.csv,store_type,object,category,6,0,exactly Express / Supermarket / Hypermarket,3,"Issue - fixed, see below"
+stores.csv,floor_area_sqft,int64,integer,6,0,> 0,0,OK
+stores.csv,avg_daily_customers,int64,integer,6,0,> 0,0,OK
+stores.csv,region,object,string,6,0,not blank,0,OK
+inventory.csv,date,object,date,69484,0,YYYY-MM-DD,0,OK
+inventory.csv,store_id / product_id,object,string,69484,0,known store and product,0,OK
+inventory.csv,opening_stock / received_qty / sold_qty,int64,integer,69484,0,>= 0,0,OK
+inventory.csv,closing_stock,int64,integer,69484,0,>= 0,40,"Issue - fixed, see below"
+inventory.csv,closing_stock,int64,integer,69484,0,= opening + received - sold,921,"Issue - fixed, see below"
+inventory.csv,reorder_level,int64,integer,69484,0,> 0,0,OK
+inventory.csv,lead_time_days,int64,integer,69484,0,1-7,0,OK
+external_factors.csv,date,object,date,963,0,YYYY-MM-DD,0,OK
+external_factors.csv,city,object,string,963,0,matches a city in stores.csv,194,"Issue - fixed, see below"
+external_factors.csv,temp_c,float64,float,963,28,10-45 C,40,"Issue - fixed, see below"
+external_factors.csv,rain_mm,float64,float,963,19,>= 0,19,"Issue - fixed, see below"
+external_factors.csv,holiday / festival / local_event,int64,0/1,963,0,0 or 1,0,OK
+external_factors.csv,festival_name,object,string,963,923,present exactly when festival = 1,0,OK (blank is meaningful)
+external_factors.csv,weekend,int64,0/1,963,0,equals Saturday/Sunday of the date,0,OK
+promotions_calendar.csv,store_id / product_id,object,string,1418,0,known store and product,0,OK
+promotions_calendar.csv,start_date / end_date,object,date,1418,0,"valid dates, end >= start",0,OK
+promotions_calendar.csv,discount_pct,int64,integer,1418,0,5-30 in steps of 5,0,OK
+promotions_calendar.csv,promo_type,object,category,1418,0,Price Off / Festival Offer,0,OK
+purchase_orders.csv,po_id,object,string,10928,0,unique,0,OK
+purchase_orders.csv,supplier_id,object,string,10928,0,in supplier master and matches the product's supplier,0,OK
+purchase_orders.csv,expected_date,object,date,10928,0,>= order_date,0,OK
+purchase_orders.csv,received_date,object,date,10928,131,>= order_date; blank only when status = OPEN,0,OK (blank is meaningful)
+purchase_orders.csv,qty_ordered / qty_received,int64,integer,10928,131,ordered > 0; 0 <= received <= ordered (when received),0,OK (blank is meaningful)
+purchase_orders.csv,status,object,category,10928,0,RECEIVED / OPEN,0,OK
+suppliers.csv,nominal_lead_days,int64,integer,10,0,1-7,0,OK
+transactions.csv,(whole row),-,-,723614,0,no exact duplicate rows,5742,"Issue - fixed, see below"
+products.csv,(whole row),-,-,84,0,no exact duplicate rows,3,"Issue - fixed, see below"
+stores.csv,(whole row),-,-,6,0,no exact duplicate rows,0,OK
+inventory.csv,(whole row),-,-,69484,0,no exact duplicate rows,208,"Issue - fixed, see below"
+external_factors.csv,(whole row),-,-,963,0,no exact duplicate rows,8,"Issue - fixed, see below"
+promotions_calendar.csv,(whole row),-,-,1418,0,no exact duplicate rows,0,OK
+purchase_orders.csv,(whole row),-,-,10928,0,no exact duplicate rows,0,OK
+suppliers.csv,(whole row),-,-,10,0,no exact duplicate rows,0,OK

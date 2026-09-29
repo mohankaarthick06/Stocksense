@@ -1,0 +1,33 @@
+table,issue,count,action,justification
+products,Exact duplicate rows,3,Removed,Identical rows for the same product; keeping one avoids duplicating sales in joins.
+products,Inconsistent category spellings (20 spellings for 7 categories),20,Mapped to 7 standard categories,"'beverage', 'BEVERAGES', 'Grocery' etc. would otherwise split one category into several in every group-by."
+products,Missing brand,1,"Filled from sibling products (same supplier + sub-category): [['P609', 'GuardHome']]",Same supplier and sub-category almost always means the same brand; brand is descriptive only.
+products,Missing shelf_life_days,1,"Filled with sub-category median: [['P443', 240.0]]","Shelf life is set by product type; it drives the perishable ordering cap, so it cannot be left blank."
+products,cost_price >= MRP (negative margin),0,Checked - none found,Margin feeds lost-profit estimates.
+stores,store_type mixed case / stray spaces (5 spellings),3,"Stripped and title-cased -> ['Express', 'Hypermarket', 'Supermarket']",'hypermarket' and 'Hypermarket' must be one group in store-format analysis.
+external_factors,Exact duplicate rows,8,Removed,Duplicate weather rows would duplicate master rows on join.
+external_factors,City spelled 'Trichy' (stores.csv uses 'Tiruchirappalli'),191,Renamed to Tiruchirappalli,"Without this, store S05 gets no weather or calendar data at all - the join fails silently with NaNs."
+external_factors,Impossible temperature (outside 10-45 C),12,"Set to missing, then imputed. Values seen: [-1.0, 0.0, 3.2, 58.4, 99.9, 112.0]","-1 C, 58.4 C and 112 C are sensor/entry errors for Tamil Nadu; keeping them would distort heat effects."
+external_factors,Missing temp_c,28,Time interpolation within the same city,Weather changes smoothly day to day within a city; a global mean would ignore the Chennai vs Coimbatore climate gap.
+external_factors,Missing rain_mm,19,Time interpolation within the same city,Same reasoning; neighbouring days are the best estimate. Rows are flagged in weather_imputed.
+external_factors,weekend flag disagrees with the calendar,0,Checked - none found,Validates the calendar flags.
+transactions,Exact duplicate rows (same transaction_id and same content),5742,Removed,"A repeated identical record is a double load, not a second sale."
+transactions,Dates in DD-MM-YYYY instead of YYYY-MM-DD,8612,Parsed with an explicit second format,"Automatic inference could read 03-08-2026 as 8 March, moving sales to the wrong month."
+transactions,Store/product IDs in lower case or with stray spaces,5743,Stripped and upper-cased,"'s02' and ' S02' would each become a separate, phantom store."
+transactions,quantity <= 0 (returns / voids),2147,Excluded from demand; counted separately as returns,A return is not negative demand; including it would understate how much customers wanted.
+transactions,Keying errors: quantity multiplied by 100 (e.g. 100 instead of 1),45,Divided by 100 after confirming with inventory.sold_qty,Inventory disagreed on exactly these store-days; after the fix both systems agree. A blanket outlier cap would wrongly clip genuine bulk sales (e.g. Chennai hypermarket milk ~185 units/day).
+transactions,selling_price above MRP (about 10x - misplaced decimal),715,Divided by 10; result verified against sibling lines below,Price above MRP is illegal in India; /10 gives exactly the price charged on other lines that day.
+transactions,Missing selling_price,3587,"Filled with the price of other lines for the same store, product, day and discount (3,558); 29 from the nearest day with the same discount","Within a store-product-day-discount every valid line has one identical price, so this recovers the true price."
+transactions,Blank customer_id,272238,Left blank (not imputed),"Blank means the shopper is not a loyalty member. It is not used for demand, so inventing IDs would add fiction."
+purchase_orders,Exact duplicate rows,0,Checked - none found,
+purchase_orders,Blank received_date / qty_received,131,Kept - these are the OPEN orders (incoming stock on 31 Aug),"Blank is meaningful here, not an error."
+purchase_orders,Status RECEIVED but qty_received = 0,9,Kept as failed deliveries (fill rate 0),"Inventory confirms nothing arrived on those days, so this is a real supplier failure, not a typo - it belongs in supplier reliability."
+promotions_calendar,Overlapping promotions for the same store-product-day,0,Checked - none found,Each day must carry one discount.
+inventory,Exact duplicate rows,208,Removed,Would double the stock and sales on those days.
+inventory,closing != opening + received - sold,919,Diagnosed with the next day's opening count and purchase orders (two rows below),Stock-out labels come from closing stock.
+inventory,"  - Delivery not recorded (received_qty = 0, but a PO was received)",208,received_qty taken from purchase_orders,"The closing count is confirmed by the next day's opening count, and the PO receipt explains the gap exactly."
+inventory,  - Closing stock mistyped (incl. negative closing),711,Recomputed as opening + received - sold (40 of these were negative),"The next day's opening stock (physical count) equals the recomputed figure, not the recorded one. Negative stock is impossible."
+inventory,Missing store-product days,278,"Rebuilt: opening = previous closing, received = PO receipts, sold = transactions. 277/277 rebuilt closings match the next day's opening count","Deleting the days would break the time series (lags, rolling means) and hide possible stock-outs."
+inventory,Cross-check: inventory sold_qty vs cleaned transactions,0,All days agree after cleaning,Two independent systems now tell the same story - evidence the cleaning is correct.
+master,Rows / unmatched keys after every join,0,"69,554 rows before and after all 7 joins; 0 unmatched keys",Checked with assertions - a silent join failure would create NaNs rather than an error.
+master,Sparse history (< 28 days of data),4,"Kept and flagged (P114: 5d, P216: 5d, P339: 22d, P453: 22d). Fallback for forecasting: category x store average scaled by the product's early sales",Dropping them would give new launches no recommendation at all; their lag features will simply be empty.

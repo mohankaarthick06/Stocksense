@@ -1,0 +1,62 @@
+group,feature,information used,missing
+Recent demand,lag_1,Days <= t,0.0%
+Recent demand,lag_7,Days <= t,3.3%
+Recent demand,lag_14,Days <= t,7.2%
+Recent demand,rolling_mean_7,Days <= t,0.0%
+Recent demand,rolling_mean_14,Days <= t,0.0%
+Recent demand,rolling_mean_28,Days <= t,0.0%
+Recent demand,rolling_std_7,Days <= t,0.6%
+Recent demand,rolling_std_28,Days <= t,0.6%
+Recent demand,cv_28,Days <= t,0.6%
+Recent demand,prev_week_mean,Days <= t,3.9%
+Recent demand,trend_7_28,Days <= t,0.0%
+Recent demand,growth_wow,Days <= t,3.9%
+Recent demand,baseline_7d,Days <= t,0.0%
+Promotion plan,promo_days_next7,Planned calendar for t+1..t+7; history <= t,0.0%
+Promotion plan,max_discount_next7,Planned calendar for t+1..t+7; history <= t,0.0%
+Promotion plan,avg_discount_next7,Planned calendar for t+1..t+7; history <= t,0.0%
+Promotion plan,promo_today,Planned calendar for t+1..t+7; history <= t,0.0%
+Promotion plan,promo_days_last7,Planned calendar for t+1..t+7; history <= t,0.0%
+Promotion plan,days_since_promo,Planned calendar for t+1..t+7; history <= t,0.0%
+Promotion plan,post_promo_window,Planned calendar for t+1..t+7; history <= t,0.0%
+Promotion plan,discount_today,Planned calendar for t+1..t+7; history <= t,0.0%
+Festival & holiday calendar,holiday_next7,Published calendar; festival lift from festivals already past at t,0.0%
+Festival & holiday calendar,festival_next7,Published calendar; festival lift from festivals already past at t,0.0%
+Festival & holiday calendar,days_to_festival,Published calendar; festival lift from festivals already past at t,0.0%
+Festival & holiday calendar,product_festival_lift,Published calendar; festival lift from festivals already past at t,0.0%
+Festival & holiday calendar,festival_x_lift,Published calendar; festival lift from festivals already past at t,0.0%
+Festival & holiday calendar,local_event_next7,Published calendar; festival lift from festivals already past at t,0.0%
+Festival & holiday calendar,payday_days_next7,Published calendar; festival lift from festivals already past at t,0.0%
+Weather,temp_last3,Days <= t,0.0%
+Weather,rain_last3,Days <= t,0.0%
+Weather,temp_anomaly,Days <= t,0.0%
+Price,regular_price,Days <= t,0.0%
+Price,price_ratio_28,Days <= t,0.0%
+Price,price_change_30d,Days <= t,0.0%
+Price,mrp,Days <= t,0.0%
+Stock & supply,closing_stock,Closing stock of t; POs ordered <= t (expected date),0.0%
+Stock & supply,reorder_level,Closing stock of t; POs ordered <= t (expected date),0.0%
+Stock & supply,reorder_gap,Closing stock of t; POs ordered <= t (expected date),0.0%
+Stock & supply,incoming_next7,Closing stock of t; POs ordered <= t (expected date),0.0%
+Stock & supply,days_of_cover,Closing stock of t; POs ordered <= t (expected date),0.0%
+Stock & supply,stock_to_demand_7d,Closing stock of t; POs ordered <= t (expected date),0.0%
+Stock & supply,stockout_today,Closing stock of t; POs ordered <= t (expected date),0.0%
+Stock & supply,stockout_days_last14,Closing stock of t; POs ordered <= t (expected date),0.0%
+Stock & supply,stockout_rate_last28,Closing stock of t; POs ordered <= t (expected date),0.0%
+Stock & supply,days_since_stockout,Closing stock of t; POs ordered <= t (expected date),0.0%
+Stock & supply,lost_units_last7,Closing stock of t; POs ordered <= t (expected date),0.0%
+Stock & supply,lead_time_days,Closing stock of t; POs ordered <= t (expected date),0.0%
+Stock & supply,supplier_late_rate,Closing stock of t; POs ordered <= t (expected date),1.5%
+Stock & supply,supplier_avg_delay,Closing stock of t; POs ordered <= t (expected date),1.5%
+Stock & supply,supplier_fill_rate,Closing stock of t; POs ordered <= t (expected date),1.5%
+Stock & supply,effective_lead_time,Closing stock of t; POs ordered <= t (expected date),0.0%
+Store & product profile,store_code,Static,0.0%
+Store & product profile,store_type,Static,0.0%
+Store & product profile,category,Static,0.0%
+Store & product profile,sub_category,Static,0.0%
+Store & product profile,shelf_life_days,Static,0.0%
+Store & product profile,avg_daily_customers,Static,0.0%
+Store & product profile,floor_area_sqft,Static,0.0%
+Store & product profile,history_days,Static,0.0%
+Calendar position,origin_dow,Known,0.0%
+Calendar position,month,Known,0.0%
